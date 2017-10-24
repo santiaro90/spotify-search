@@ -1,7 +1,17 @@
 import * as React from 'react';
 
-const search = () => (
-    <h1>Search</h1>
-);
+import SearchInput from './SearchInput';
+
+import './styles.css';
+
+const search = () => {
+    const onSearch = (val: string) => console.warn(val);
+
+    return (
+        <section className="Search">
+            <SearchInput placeholder="Search" onSearch={onSearch} />
+        </section>
+    );
+};
 
 export default search;
