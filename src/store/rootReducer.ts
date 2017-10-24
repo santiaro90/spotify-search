@@ -1,10 +1,7 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
 
-import auth, { AuthState } from '../auth/reducer';
+import { AppState } from './types';
 
-export type AppState = {
-    auth: AuthState;
-};
+import auth from '../auth/reducer';
 
-export default combineReducers<AppState>({ auth, routing: routerReducer });
+export default combineReducers<AppState>({ auth });

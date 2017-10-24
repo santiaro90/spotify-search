@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { AppState } from '../../store/rootReducer';
+import { AppState } from '../../store/types';
 
 type ProtectedRouteProps = RouteProps & {
     component: React.StatelessComponent;

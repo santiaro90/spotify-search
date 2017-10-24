@@ -1,51 +1,19 @@
 import Api from '../api';
-import {
-    LOGIN_FAILED,
-    LOGIN_STARTED,
-    LOGIN_SUCCESSFULL,
-} from './constants';
 
-type LoginStartedAction = {
-    type: string;
-};
+import { LOGIN_STARTED, LOGIN_SUCCESSFUL } from './constants';
+import { LoginStartedAction, LoginSuccessfulAction } from './types';
 
-export type LoginSuccessfullAction = {
-    type: string;
-    payload: {
-        token: string;
-    };
-};
-
-export type LoginFailedAction = {
-    type: string;
-    payload: {
-        error: string;
-    };
-};
-
-export type AuthAction =
-    LoginStartedAction |
-    LoginSuccessfullAction |
-    LoginFailedAction;
-
-export const loginSuccessfull = (token: string): LoginSuccessfullAction => ({
-    type: LOGIN_SUCCESSFULL,
+export const loginSuccessful = (token: string): LoginSuccessfulAction => ({
+    type: LOGIN_SUCCESSFUL,
     payload: { token },
 });
 
-export const loginFailed = (error: string): LoginFailedAction => ({
-    type: LOGIN_FAILED,
-    payload: { error },
-});
+export const loginStarted = (): LoginStartedAction => ({ type: LOGIN_STARTED });
 
-const loginStarted = (): LoginStartedAction => ({
-    type: LOGIN_STARTED,
-});
-
-export const login = () => async (dispatch: (action: AuthAction) => void) => {
+export const login = () => async (dispatch: Function) => {
     dispatch(loginStarted());
 
     const { token } = await Api.Auth.login();
 
-    dispatch(loginSuccessfull(token));
+    dispatch(loginSuccessful(token));
 };

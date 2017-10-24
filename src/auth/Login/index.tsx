@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { AppState } from '../../store/types';
 
 import { login } from '../actions';
-
-import { AppState } from '../../store/rootReducer';
 
 type LoginProps = {
     loggedIn: boolean;
