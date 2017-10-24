@@ -1,5 +1,16 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    align-items: stretch;
+    display: flex;
+    font-family: Montserrat, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    align-items: stretch;
+    background: linear-gradient(to bottom, #1f3b08, #001a00 60%, black);
+    justify-content: center;
+    display: flex;
+    flex: 1;
 }

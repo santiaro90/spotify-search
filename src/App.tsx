@@ -10,10 +10,8 @@ import './App.css';
 class App extends React.Component {
   render() {
     return (
-        <div>
-            <h1>
-                Spotify search
-            </h1>
+        <div className="App">
+            <h1 className="App-header">Spotifynd</h1>
             <Switch>
                 <ProtectedRoute exact={true} path="/" component={Search} />
                 <Route path="/login" component={Login} />

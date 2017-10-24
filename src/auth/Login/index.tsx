@@ -6,6 +6,8 @@ import { AppState } from '../../store/types';
 
 import { login } from '../actions';
 
+import './styles.css';
+
 type LoginProps = {
     loggedIn: boolean;
     login: () => void;
@@ -13,9 +15,17 @@ type LoginProps = {
 
 export class Login extends React.Component<LoginProps> {
     render() {
-        return this.props.loggedIn ?
-            <Redirect to="/" /> :
-            <button onClick={() => this.props.login()}>Login</button>;
+        const buttonClass = 'Login-button light-green accent-4 btn btn-large waves-effect waves-light';
+
+        return (
+            <section className="Login">
+                {
+                    this.props.loggedIn ?
+                        <Redirect to="/" /> :
+                        <button className={buttonClass} onClick={() => this.props.login()}>Login</button>
+                }
+            </section>
+        );
     }
 }
 
