@@ -1,6 +1,7 @@
 import Api from '../api';
 
 import { LOGIN_STARTED, LOGIN_SUCCESSFUL } from './constants';
+import { LoginOkResponse } from '../api/types';
 import { LoginStartedAction, LoginSuccessfulAction } from './types';
 
 export const loginSuccessful = (token: string): LoginSuccessfulAction => ({
@@ -13,7 +14,7 @@ export const loginStarted = (): LoginStartedAction => ({ type: LOGIN_STARTED });
 export const login = () => async (dispatch: Function) => {
     dispatch(loginStarted());
 
-    const { token } = await Api.Auth.login();
+    const authResponse: LoginOkResponse = await Api.Auth.login();
 
-    dispatch(loginSuccessful(token));
+    dispatch(loginSuccessful(authResponse.token));
 };
