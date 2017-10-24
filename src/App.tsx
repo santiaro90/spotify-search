@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Login from './auth/Login';
-import ProtectedRoute  from './auth/ProtectedRoute';
+import ProtectedRoute from './auth/ProtectedRoute';
 import Search from './search';
 
 import './App.css';

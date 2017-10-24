@@ -1,7 +1,13 @@
+import Api from '../api';
 import {
     LOGIN_FAILED,
+    LOGIN_STARTED,
     LOGIN_SUCCESSFULL,
 } from './constants';
+
+type LoginStartedAction = {
+    type: string;
+};
 
 export type LoginSuccessfullAction = {
     type: string;
@@ -17,7 +23,10 @@ export type LoginFailedAction = {
     };
 };
 
-export type AuthAction = LoginSuccessfullAction | LoginFailedAction;
+export type AuthAction =
+    LoginStartedAction |
+    LoginSuccessfullAction |
+    LoginFailedAction;
 
 export const loginSuccessfull = (token: string): LoginSuccessfullAction => ({
     type: LOGIN_SUCCESSFULL,
@@ -28,3 +37,15 @@ export const loginFailed = (error: string): LoginFailedAction => ({
     type: LOGIN_FAILED,
     payload: { error },
 });
+
+const loginStarted = (): LoginStartedAction => ({
+    type: LOGIN_STARTED,
+});
+
+export const login = () => async (dispatch: (action: AuthAction) => void) => {
+    dispatch(loginStarted());
+
+    const { token } = await Api.Auth.login();
+
+    dispatch(loginSuccessfull(token));
+};

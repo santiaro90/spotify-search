@@ -5,16 +5,24 @@ import { connect } from 'react-redux';
 import { AppState } from '../../store/rootReducer';
 
 type ProtectedRouteProps = RouteProps & {
+    component: React.StatelessComponent;
     loggedIn: boolean;
 };
 
-export const ProtectedRoute = ({ component, ...props }: ProtectedRouteProps) => {
-    const { loggedIn } = props;
+export class ProtectedRoute extends React.Component<ProtectedRouteProps> {
+    renderRoute = (props: {}) => {
+        const loggedIn = this.props.loggedIn;
+        const Component = this.props.component;
 
-    return loggedIn ?
-        <Route component={component} {...props} /> :
-        <Redirect to="/login" />;
-};
+        return loggedIn ?
+            <Component {...props} /> :
+            <Redirect to="/login" />;
+    }
+
+    render() {
+        return <Route render={this.renderRoute} />;
+    }
+}
 
 const mapStateToProps = (state: AppState) => ({
     loggedIn: state.auth.loggedIn,

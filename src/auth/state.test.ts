@@ -1,11 +1,25 @@
-import { AuthState } from './reducer';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import Api from '../api';
 
 import configureStore from '../store/configureStore';
 
-import { loginFailed, loginSuccessfull } from './actions';
+import { login, loginSuccessfull } from './actions';
+import { LOGIN_STARTED, LOGIN_SUCCESSFULL } from './constants';
+
+import { AuthState } from './reducer';
+
+jest.mock('../api');
 
 describe('Auth state', () => {
     const store = configureStore();
+    const mockStore = configureMockStore([thunk])({});
+
+    afterEach(() => {
+        Api.Auth.login = jest.fn();
+        mockStore.clearActions();
+    });
 
     it('starts with user not logged in', () => {
         const state = store.getState();
@@ -24,14 +38,16 @@ describe('Auth state', () => {
         });
     });
 
-    it('does nothing when login fails', () => {
-        store.dispatch(loginFailed('error'));
+    it('logs in', async () => {
+        Api.Auth.login = async () => ({ token: 'token' });
 
-        const nextState: AuthState = store.getState().auth;
+        await mockStore.dispatch(login());
 
-        expect(nextState).toEqual({
-            loggedIn: false,
-            token: '',
-        });
+        const authActions = mockStore.getActions();
+
+        expect(authActions).toEqual([
+            { type: LOGIN_STARTED },
+            { type: LOGIN_SUCCESSFULL, payload: { token: 'token' } },
+        ]);
     });
 });
