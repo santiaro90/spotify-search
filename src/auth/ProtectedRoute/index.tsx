@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { AppState } from '../../store/types';
 
 type ProtectedRouteProps = RouteProps & {
-    component: React.StatelessComponent;
+    component: React.ComponentClass;
     loggedIn: boolean;
 };
 

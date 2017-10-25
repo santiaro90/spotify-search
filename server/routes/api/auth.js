@@ -7,7 +7,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET || 'CLIENT_SECRET'
 const BASE_64_SECRET = new Buffer(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 const AUTH_HEADER = `Basic ${BASE_64_SECRET}`
 
-router.get('/login', (req, res, next) => {
+router.get('/login', (req, res) => {
     const options = {
         url: 'https://accounts.spotify.com/api/token',
         headers: {
@@ -23,7 +23,7 @@ router.get('/login', (req, res, next) => {
         if (!err && response.statusCode === 200) {
             res.send({ token: body.access_token })
         } else {
-            res.send(body)
+            res.status(response.statusCode).send(body)
         }
     })
 })

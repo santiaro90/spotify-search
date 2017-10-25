@@ -4,7 +4,7 @@ import './styles.css';
 
 type SearchInputProps = {
     onSearch: Function;
-    placeholder: string;
+    placeholder?: string;
 };
 
 export const ENTER_KEY = 13;
