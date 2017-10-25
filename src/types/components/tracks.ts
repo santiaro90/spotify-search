@@ -1,5 +1,7 @@
 import { Track } from '../../types/state/tracks';
 
+export type TrackInfoProps = Track;
+
 export type TrackItemProps = {
     onClick: () => void;
     track: Track;

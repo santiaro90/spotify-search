@@ -9,7 +9,7 @@ import './styles.css';
 
 const TrackList: React.StatelessComponent<TrackListProps> = ({ onSelectTrack, tracks }) => (
     tracks.length ? (
-        <div className="TrackList">
+        <div className="TrackList background-transparent">
             <div className="TrackList-header">
                 <div className="TrackList-header-item">Artist</div>
                 <div className="TrackList-header-item">Track</div>
