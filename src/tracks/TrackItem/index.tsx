@@ -10,7 +10,7 @@ const TrackItem: React.StatelessComponent<TrackItemProps> = ({ onClick, track })
         <Link className="Track-link" to={`/tracks/${track.id}`}>
             <div className="Track-prop">{track.artist}</div>
             <div className="Track-prop">{track.name}</div>
-            <div className="Track-prop">{track.album}</div>
+            <div className="Track-prop">{track.album.name}</div>
         </Link>
     </div>
 );

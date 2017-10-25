@@ -28,17 +28,89 @@ describe('Tracks state', () => {
 
     it('sets the track list coming from a search', async () => {
         const tracks: TrackResponse[] = [
-            { id: '1', name: 'a', album: { name: 'b' }, artists: [{ name: 'c' }], duration_ms: 260000 },
-            { id: '2', name: 'a', album: { name: 'b' }, artists: [{ name: 'c' }], duration_ms: 180000 },
-            { id: '3', name: 'a', album: { name: 'b' }, artists: [{ name: 'c' }], duration_ms: 150000 },
-            { id: '4', name: 'a', album: { name: 'b' }, artists: [{ name: 'c' }], duration_ms: 453000 },
+            {
+                id: '1',
+                name: 'a',
+                album: {
+                    name: 'b',
+                    images: [
+                        { url: 'url', height: 300, width: 300 },
+                        { url: 'url2', height: 64, width: 64 },
+                    ]
+                },
+                artists: [{ name: 'c' }],
+                duration_ms: 260000
+            },
+            {
+                id: '2',
+                name: 'a',
+                album: {
+                    name: 'b',
+                    images: [
+                        { url: 'url2', height: 64, width: 64 },
+                        { url: 'url', height: 300, width: 300 },
+                    ]
+                },
+                artists: [{ name: 'c' }],
+                duration_ms: 180000
+            },
+            {
+                id: '3',
+                name: 'a',
+                album: {
+                    name: 'b',
+                    images: [
+                        { url: 'url', height: 300, width: 300 },
+                        { url: 'url2', height: 64, width: 64 },
+                    ]
+                },
+                artists: [{ name: 'c' }],
+                duration_ms: 150000
+            },
+            {
+                id: '4',
+                name: 'a',
+                album: {
+                    name: 'b',
+                    images: [
+                        { url: 'url2', height: 64, width: 64 },
+                        { url: 'url', height: 300, width: 300 },
+                    ]
+                },
+                artists: [{ name: 'c' }],
+                duration_ms: 453000
+            },
         ];
 
         const expectedTracks: Track[] = [
-            { id: '1', name: 'a', album: 'b', artist: 'c', duration: { mins: 4, secs: 20 } },
-            { id: '2', name: 'a', album: 'b', artist: 'c', duration: { mins: 3, secs: 0 } },
-            { id: '3', name: 'a', album: 'b', artist: 'c', duration: { mins: 2, secs: 30 } },
-            { id: '4', name: 'a', album: 'b', artist: 'c', duration: { mins: 7, secs: 33 } },
+            {
+                id: '1',
+                name: 'a',
+                album: { name: 'b', cover: 'url' },
+                artist: 'c',
+                duration: { mins: 4, secs: 20 }
+            },
+            {
+                id: '2',
+                name: 'a',
+                album: { name: 'b', cover: 'url' },
+                artist: 'c',
+                duration: { mins: 3, secs: 0 }
+            },
+            {
+                id: '3',
+                name: 'a',
+                album: { name: 'b', cover: 'url' },
+                artist: 'c',
+                duration: { mins: 2, secs: 30 }
+            },
+            {
+                id: '4',
+                name: 'a',
+                album: { name: 'b', cover: 'url' },
+                artist: 'c',
+                duration: { mins: 7, secs: 33 }
+            },
         ];
 
         Api.Search.getTracks = async ({}) => tracks;

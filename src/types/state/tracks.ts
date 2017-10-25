@@ -3,10 +3,15 @@ export type Duration = {
     secs: number;
 };
 
+export type TrackAlbum = {
+    name: string;
+    cover: string;
+};
+
 export type Track = {
     id: string;
     name: string;
-    album: string;
+    album: TrackAlbum;
     duration: Duration;
     artist: string;
 };
