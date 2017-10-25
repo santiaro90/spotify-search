@@ -10,6 +10,6 @@ export type SearchTrackAction = {
 export type SearchTracksSuccessfulAction = {
     type: string;
     payload: {
-        tracks: [TrackResponse];
+        tracks: TrackResponse[];
     };
 };
