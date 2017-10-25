@@ -12,8 +12,3 @@ export type LoginSuccessfulAction = {
 export type AuthAction =
     LoginStartedAction |
     LoginSuccessfulAction;
-
-export type AuthState = {
-    loggedIn: boolean;
-    token: string;
-};

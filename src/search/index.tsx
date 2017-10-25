@@ -7,15 +7,9 @@ import Tracks from '../tracks/index';
 
 import { getTracks } from './actions';
 
-import { History } from 'history';
+import { SearchProps } from '../types/components/search';
 
 import './styles.css';
-
-type SearchProps = {
-    history: History;
-    onSearch: (search: string) => void;
-    getTracks: (search: string) => void;
-};
 
 export class Search extends React.Component<SearchProps> {
     getTracks = async (search: string) => {

@@ -2,16 +2,12 @@ import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { AppState } from '../../store/types';
+import { AppState } from '../../types/state/store';
+import { LoginProps } from '../../types/components/auth';
 
 import { login } from '../actions';
 
 import './styles.css';
-
-type LoginProps = {
-    loggedIn: boolean;
-    login: () => void;
-};
 
 export class Login extends React.Component<LoginProps> {
     render() {

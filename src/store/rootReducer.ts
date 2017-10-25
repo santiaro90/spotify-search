@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { AppState } from './types';
+import { AppState } from '../types/state/store';
 
 import auth from '../auth/reducer';
 import tracks from '../tracks/reducer';

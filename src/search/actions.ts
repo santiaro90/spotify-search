@@ -1,9 +1,9 @@
 import Api from '../api';
 
 import { SEARCH_TRACKS, SEARCH_TRACKS_SUCCESSFUL } from './constants';
-import { AppState } from '../store/types';
-import { SearchTrackAction } from './types';
-import { TrackResponse } from '../api/types';
+import { AppState } from '../types/state/store';
+import { SearchTrackAction } from '../types/actions/search';
+import { TrackResponse } from '../types/api/tracks';
 
 export const searchTracks = (search: string): SearchTrackAction => ({
     type: SEARCH_TRACKS,

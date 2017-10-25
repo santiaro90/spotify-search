@@ -1,10 +1,7 @@
 import { SEARCH_TRACKS_SUCCESSFUL } from '../search/constants';
-import { SearchTracksSuccessfulAction } from '../search/types';
-import {
-    Track,
-    TracksAction,
-    TracksState,
-} from './types';
+import { SearchTracksSuccessfulAction } from '../types/actions/search';
+import { TracksAction } from '../types/actions/tracks';
+import { Track, TracksState } from '../types/state/tracks';
 
 import { trackFromPayload } from './helpers';
 

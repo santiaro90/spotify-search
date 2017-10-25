@@ -1,13 +1,9 @@
 import * as React from 'react';
-import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { AppState } from '../../store/types';
-
-type ProtectedRouteProps = RouteProps & {
-    component: React.ComponentClass;
-    loggedIn: boolean;
-};
+import { AppState } from '../../types/state/store';
+import { ProtectedRouteProps } from '../../types/components/auth';
 
 export class ProtectedRoute extends React.Component<ProtectedRouteProps> {
     renderRoute = (props: {}) => {

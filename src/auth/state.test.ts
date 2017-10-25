@@ -8,7 +8,7 @@ import configureStore from '../store/configureStore';
 import { login, loginSuccessful } from './actions';
 import { LOGIN_STARTED, LOGIN_SUCCESSFUL } from './constants';
 
-import { AuthState } from './types';
+import { AuthState } from '../types/state/auth';
 
 jest.mock('../api');
 

@@ -1,18 +1,17 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Track } from '../types';
+import { TrackItemProps } from '../../types/components/tracks';
 
 import './styles.css';
 
-type TrackItemProps = {
-    track: Track;
-};
-
 const TrackItem: React.StatelessComponent<TrackItemProps> = ({ track }) => (
     <div className="Track">
-        <div className="Track-prop">{track.artist}</div>
-        <div className="Track-prop">{track.name}</div>
-        <div className="Track-prop">{track.album}</div>
+        <Link className="Track-link" to={`/tracks/${track.id}`}>
+            <div className="Track-prop">{track.artist}</div>
+            <div className="Track-prop">{track.name}</div>
+            <div className="Track-prop">{track.album}</div>
+        </Link>
     </div>
 );
 

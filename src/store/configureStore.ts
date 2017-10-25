@@ -2,7 +2,7 @@ import { Middleware, Store, applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import { AppState } from './types';
+import { AppState } from '../types/state/store';
 
 import rootReducer from './rootReducer';
 

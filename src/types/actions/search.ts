@@ -1,4 +1,4 @@
-import { TrackResponse } from '../api/types';
+import { TrackResponse } from '../api/tracks';
 
 export type SearchTrackAction = {
     type: string;

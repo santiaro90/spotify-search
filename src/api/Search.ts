@@ -1,7 +1,8 @@
 import * as queryString from 'query-string';
 
 import { SEARCH_TRACKS } from './urls';
-import { TrackQuery, TrackResponse } from './types';
+import { TrackResponse } from '../types/api/tracks';
+import { TrackQuery } from '../types/api/search';
 
 export async function getTracks(query: TrackQuery): Promise<TrackResponse[]> {
     const search = queryString.stringify({ q: query.search });

@@ -1,11 +1,8 @@
 import * as React from 'react';
 
-import './styles.css';
+import { SearchInputProps } from '../../types/components/search';
 
-type SearchInputProps = {
-    onSearch: Function;
-    placeholder?: string;
-};
+import './styles.css';
 
 export const ENTER_KEY = 13;
 

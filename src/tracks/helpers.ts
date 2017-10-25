@@ -1,5 +1,7 @@
-import { TrackResponse } from '../api/types';
-import { Duration, Track } from './types';
+import { TrackResponse } from '../types/api/tracks';
+import { Duration, Track } from '../types/state/tracks';
+
+export const findTrack = (id: string, trackList: Track[]) => trackList.find((t: Track) => t.id === id);
 
 export const millisecondsToDuration = (ms: number): Duration => {
     const totalSeconds = Math.floor(ms / 1000);

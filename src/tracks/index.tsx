@@ -3,12 +3,8 @@ import { connect } from 'react-redux';
 
 import TrackList from './TrackList';
 
-import { AppState } from '../store/types';
-import { Track } from './types';
-
-type TracksProps = {
-    tracks: Track[];
-};
+import { AppState } from '../types/state/store';
+import { TracksProps } from '../types/components/tracks';
 
 export class Tracks extends React.Component<TracksProps> {
     render() {

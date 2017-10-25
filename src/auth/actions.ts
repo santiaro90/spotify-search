@@ -1,8 +1,8 @@
 import Api from '../api';
 
 import { LOGIN_STARTED, LOGIN_SUCCESSFUL } from './constants';
-import { LoginOkResponse } from '../api/types';
-import { LoginStartedAction, LoginSuccessfulAction } from './types';
+import { LoginOkResponse } from '../types/api/auth';
+import { LoginStartedAction, LoginSuccessfulAction } from '../types/actions/auth';
 
 export const loginSuccessful = (token: string): LoginSuccessfulAction => ({
     type: LOGIN_SUCCESSFUL,

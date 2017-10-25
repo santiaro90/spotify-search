@@ -1,5 +1,6 @@
 import { LOGIN_SUCCESSFUL } from './constants';
-import { AuthAction, AuthState, LoginSuccessfulAction } from './types';
+import { AuthAction, LoginSuccessfulAction } from '../types/actions/auth';
+import { AuthState } from '../types/state/auth';
 
 const initialState: AuthState = {
     loggedIn: false,

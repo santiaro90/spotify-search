@@ -1,15 +1,6 @@
-import { SearchTracksSuccessfulAction } from '../search/types';
-
 export type Duration = {
     mins: number;
     secs: number;
-};
-
-export type SelectTrackAction = {
-    type: string;
-    payload: {
-        track: Track;
-    };
 };
 
 export type Track = {
@@ -19,10 +10,6 @@ export type Track = {
     duration: Duration;
     artist: string;
 };
-
-export type TracksAction =
-    SearchTracksSuccessfulAction |
-    SelectTrackAction;
 
 export type TracksState = {
     trackList: Track[];

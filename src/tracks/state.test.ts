@@ -5,12 +5,11 @@ import configureStore from '../store/configureStore';
 import { loginSuccessful } from '../auth/actions';
 import { getTracks } from '../search/actions';
 
-import { Track } from './types';
-import { TrackResponse } from '../api/types';
+import { Track } from '../types/state/tracks';
+import { TrackResponse } from '../types/api/tracks';
+import { TracksState } from '../types/state/tracks';
 
 jest.mock('../api');
-
-import { TracksState } from './types';
 
 describe('Tracks state', () => {
     afterEach(() => {
