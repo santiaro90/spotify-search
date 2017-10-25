@@ -1,25 +1,33 @@
 import * as React from 'react';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import SearchInput from './SearchInput';
+import Tracks from '../tracks/index';
 
 import { getTracks } from './actions';
+
+import { History } from 'history';
 
 import './styles.css';
 
 type SearchProps = {
+    history: History;
     onSearch: (search: string) => void;
     getTracks: (search: string) => void;
 };
 
-class Search extends React.Component<SearchProps> {
+export class Search extends React.Component<SearchProps> {
+    getTracks = async (search: string) => {
+        await this.props.getTracks(search);
+        this.props.history.push('/search/results');
+    }
+
     render() {
         return (
             <section className="Search">
-                <SearchInput
-                    placeholder="Search"
-                    onSearch={(s: string) => this.props.getTracks(s)}
-                />
+                <SearchInput placeholder="Search" onSearch={this.getTracks} />
+                <Route path="/search/results" component={Tracks} />
             </section>
         );
     }
