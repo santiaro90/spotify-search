@@ -1,0 +1,20 @@
+.Track,
+.Track-link,
+.Track-prop {
+    display: flex;
+    flex: 1;
+}
+
+.Track {
+    justify-content: space-between;
+    padding: .5rem 0;
+}
+
+.Track-link {
+    color: white;
+}
+
+.Track-prop {
+    align-items: center;
+    text-align: left;
+}

@@ -1,7 +1,10 @@
+.Search-input.input-field {
+    width: 70%;
+}
+
 .Search-input.input-field input {
     font-size: 2rem;
     height: 3.5rem;
-    width: 80%;
 }
 
 .Search-input.input-field input:focus {

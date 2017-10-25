@@ -20,7 +20,6 @@ router.get('/tracks', (req, res) => {
         if (!err && response.statusCode === 200) {
             res.send(body.tracks.items)
         } else {
-            console.log(err)
             res.status(response.statusCode).send(body)
         }
     })

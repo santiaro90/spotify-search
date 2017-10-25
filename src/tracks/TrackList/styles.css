@@ -1,0 +1,39 @@
+.TrackList {
+    background: rgba(0, 0, 0, .2);
+    border-radius: .5rem;
+    padding: .5rem 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.Tracklist-content,
+.TrackList-header,
+.TrackList {
+    align-items: stretch;
+    display: flex;
+}
+
+.Tracklist-content {
+    flex-direction: column;
+}
+
+.Tracklist-content,
+.TrackList-header-item {
+    flex: 1;
+}
+
+.TrackList-header {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: bold;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.TrackList-header-item {
+    text-align: left;
+}
+
+.TrackList {
+    flex-direction: column;
+    width: 80%;
+}
