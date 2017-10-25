@@ -7,7 +7,7 @@ import { TrackListProps } from '../../types/components/tracks';
 
 import './styles.css';
 
-const TrackList: React.StatelessComponent<TrackListProps> = ({ tracks }) => (
+const TrackList: React.StatelessComponent<TrackListProps> = ({ onSelectTrack, tracks }) => (
     tracks.length ? (
         <div className="TrackList">
             <div className="TrackList-header">
@@ -16,7 +16,8 @@ const TrackList: React.StatelessComponent<TrackListProps> = ({ tracks }) => (
                 <div className="TrackList-header-item">Album</div>
             </div>
             <div className="TrackList-content">
-                {tracks.map((t: Track) => <TrackItem key={t.id} track={t} />)}
+                {tracks.map((t: Track) =>
+                    <TrackItem onClick={() => onSelectTrack(t.id)} key={t.id} track={t} />)}
             </div>
         </div>
     ) : null
