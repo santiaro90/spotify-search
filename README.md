@@ -25,6 +25,11 @@ npm start    # this will start both the client and the api servers
 *A browser tab will get open on `http://localhost` (by default on port `3000`),
 so you can navigate the application.*
 
+*The api server runs in `http://localhost:9000` by default. You can change the
+port number by editing the `server/.env` file. Also, check out the
+`API_BASE_URL` in `src/api/urls.ts` and make sure it points correctly to your
+local server.*
+
 ### Running tests
 ```
 npm test    # tests get run in watch mode
